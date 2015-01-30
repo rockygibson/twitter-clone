@@ -22,8 +22,22 @@ $(document).ready(function(){
 		} else {
 			$('#tweet-submit').removeAttr('disabled', '');
 		};
-
 	});
+
+	$('#tweet-submit').on('click', function(){
+		var newTweet = $('.tweet').first().clone(true);
+		$('#stream').prepend(newTweet);
+		var imgSrc = $('#profile-summary').find('.avatar').attr('src');
+		var fullName = $('#profile-summary').find('.fullName').text();
+		var userName = $('#profile-summary').find('userName').text();
+		var tweetText = $('#wow').val();
+		newTweet.find('.avatar').attr('src', imgSrc);
+		newTweet.find('.fullname').text(fullName);
+		newTweet.find('.username').text(userName);
+		newTweet.find('.tweet-text').text(tweetText);
+		$('.tweet-compose').val('');
+
+	})
 
 
 
